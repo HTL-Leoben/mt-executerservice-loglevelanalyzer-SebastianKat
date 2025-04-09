@@ -77,7 +77,7 @@ public class ParallelLogAnalyzer {
         System.out.printf("Gesamt WARN count:  %,d%n", totalWarnCount);
         System.out.printf("Gesamt ERROR count: %,d%n", totalErrorCount);
         System.out.printf("Gesamt DEBUG count: %,d%n", totalDebugCount);
-        System.out.printf("Laufzeit: " + milliSec + " milliSec");
+        System.out.printf("Laufzeit: " + milliSec + " Millisekunden");
 
         // ExecutorService herunterfahren
         executorService.shutdown();

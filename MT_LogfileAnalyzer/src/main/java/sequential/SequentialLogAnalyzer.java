@@ -73,6 +73,6 @@ public class SequentialLogAnalyzer {
         System.out.printf("WARN count:  %,d%n", warnCount);
         System.out.printf("ERROR count: %,d%n", errorCount);
         System.out.printf("DEBUG count: %,d%n", debugCount);
-        System.out.printf("Laufzeit: " + milliSec + " milliSec");
+        System.out.printf("Laufzeit: " + milliSec + " Millisekunden");
     }
 }

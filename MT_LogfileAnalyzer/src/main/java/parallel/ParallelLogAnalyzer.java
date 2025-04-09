@@ -53,6 +53,7 @@ public class ParallelLogAnalyzer {
         int totalErrorCount = 0;
         int totalDebugCount = 0;
 
+
         for (Future<Map<String, Integer>> future : futures) {
             Map<String, Integer> result = future.get();
             totalTraceCount += result.getOrDefault("TRACE", 0);

@@ -28,7 +28,6 @@ public class SequentialLogAnalyzer {
 
         String[] parts;
 
-        // Startzeit messen
         long startTime = System.nanoTime();
 
         for (String file : files) {

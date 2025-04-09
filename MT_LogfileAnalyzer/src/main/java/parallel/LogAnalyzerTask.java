@@ -16,6 +16,7 @@ class LogAnalyzerTask implements Callable<Map<String, Integer>> {
 
     @Override
     public Map<String, Integer> call() throws Exception {
+
         Map<String, Integer> logLevelCounts = new HashMap<>();
         logLevelCounts.put("TRACE", 0);
         logLevelCounts.put("INFO", 0);

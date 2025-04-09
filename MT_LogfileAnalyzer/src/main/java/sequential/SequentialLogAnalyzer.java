@@ -59,14 +59,11 @@ public class SequentialLogAnalyzer {
             }
         }
 
-        // Endzeit messen
         long endTime = System.nanoTime();
 
-        // Laufzeit berechnen und in Millisekunden umwandeln
         long nanoSec = (endTime - startTime);
         long milliSec = nanoSec / 1_000_000;
 
-        // Ausgabe formatieren
         System.out.printf("Log Analyse Ergebnisse:%n");
         System.out.printf("TRACE count: %,d%n", traceCount);
         System.out.printf("INFO count:  %,d%n", infoCount);

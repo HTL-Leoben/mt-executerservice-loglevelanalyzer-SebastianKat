@@ -13,21 +13,26 @@ public class SequentialLogAnalyzer {
         int errorCount = 0;
         int debugCount = 0;
 
-        String[] files = new String[5];
-
-        files[0] = "app-2025-03-30.log";
-        files[1] = "app-2025-03-31.log";
-        files[2] = "app-2025-04-01.log";
-        files[3] = "app-2025-04-02.log";
-        files[4] = "app-2025-04-03.log";
+        String[] files = {
+                "app-2025-03-30.log",
+                "app-2025-03-31.log",
+                "app-2025-04-01.log",
+                "app-2025-04-02.log",
+                "app-2025-04-03.log",
+                "app-2025-04-05.log",
+                "app-2025-04-06.log",
+                "app-2025-04-07.log",
+                "app-2025-04-08.log",
+                "app-2025-04-09.log"
+        };
 
         String[] parts;
 
         // Startzeit messen
         long startTime = System.nanoTime();
 
-        for (int i = 0; i < files.length; i++) {
-            try (BufferedReader br = new BufferedReader(new FileReader(files[i]))) {
+        for (String file : files) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     parts = line.split(" ");
@@ -57,15 +62,17 @@ public class SequentialLogAnalyzer {
         // Endzeit messen
         long endTime = System.nanoTime();
 
-        // Laufzeit berechnen und in Sekunden umwandeln
-        long nanoSec = endTime - startTime;
-        double sec = nanoSec / 1000000000.0;
-        System.out.println("TRACE count: " + traceCount
-                + "\nINFO count: " + infoCount
-                + "\nWARN count: " + warnCount
-                + "\nERROR count: " + errorCount
-                + "\nDEBUG count: " + debugCount);
+        // Laufzeit berechnen und in Millisekunden umwandeln
+        long nanoSec = (endTime - startTime);
+        long milliSec = nanoSec / 1_000_000;
 
-        System.out.println("Laufzeit: " + sec + " Sekunden oder " + nanoSec + " Nanosekunden");
+        // Ausgabe formatieren
+        System.out.printf("Log Analyse Ergebnisse:%n");
+        System.out.printf("TRACE count: %,d%n", traceCount);
+        System.out.printf("INFO count:  %,d%n", infoCount);
+        System.out.printf("WARN count:  %,d%n", warnCount);
+        System.out.printf("ERROR count: %,d%n", errorCount);
+        System.out.printf("DEBUG count: %,d%n", debugCount);
+        System.out.printf("Laufzeit: " + milliSec + " milliSec");
     }
 }
